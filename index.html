@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Tasty Tedoz – Fresh, handcrafted pastries including donuts, chin-chin, puff-puff, cakes, cookies and more. Order now from Porshe Estate Phase 2."
+    />
+    <title>Tasty Tedoz | Fresh Pastries & Snacks</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- ============================================================
+       HEADER / NAVIGATION
+       ============================================================ -->
+    <header class="site-header">
+      <div class="container">
+        <nav class="navbar">
+          <!-- Logo -->
+          <a href="index.html" class="nav-logo">
+            <div class="logo-icon">🍩</div>
+            <div class="logo-text">Tasty <span>Tedoz</span></div>
+          </a>
+
+          <!-- Desktop Navigation Links -->
+          <ul class="nav-links" id="navLinks">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Services.html">Products</a></li>
+            <li><a href="Blog.html">Blog</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+          </ul>
+
+          <!-- Order Now CTA -->
+          <a
+            href="Contact.html"
+            class="btn btn-primary"
+            style="display: none"
+            id="headerCta"
+            >Order Now</a
+          >
+
+          <!-- Hamburger Toggle (mobile) -->
+          <button
+            class="hamburger"
+            id="hamburger"
+            aria-label="Toggle navigation"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ============================================================
+       HERO SECTION
+       ============================================================ -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-inner">
+          <!-- Hero Text Content -->
+          <div class="hero-content">
+            <span class="hero-eyebrow">🍩 Freshly Made Daily</span>
+            <h1 class="hero-title">
+              Every Bite Tells a<br />
+              <em>Delicious Story</em>
+            </h1>
+            <p class="hero-desc">
+              Handcrafted pastries baked with love — from fluffy donuts and
+              crispy chin-chin to buttery cakes and golden puff-puff. Taste the
+              difference that real ingredients make.
+            </p>
+            <div class="hero-actions">
+              <a href="Services.html" class="btn btn-accent"
+                >Explore Our Treats</a
+              >
+              <a
+                href="Contact.html"
+                class="btn btn-outline"
+                style="color: #fff; border-color: rgba(255, 255, 255, 0.5)"
+                >Order Now</a
+              >
+            </div>
+          </div>
+
+          <!-- Hero Decorative Illustration -->
+          <div class="hero-image-wrap">
+            <div class="hero-image-blob">🎂</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       STATS / NUMBERS BAND
+       ============================================================ -->
+    <div class="stats-band">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Happy Customers</div>
+          </div>
+
+          <div class="stat-item">
+            <div class="stat-number">20+</div>
+            <div class="stat-label">Pastry Varieties</div>
+          </div>
+
+          <div class="stat-item">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Fresh Ingredients</div>
+          </div>
+
+          <div class="stat-item">
+            <div class="stat-number">5⭐</div>
+            <div class="stat-label">Customer Ratings</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+       FEATURED PRODUCTS SECTION
+       ============================================================ -->
+    <section class="section">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="text-center">
+          <span class="section-label">Our Specialties</span>
+          <h2 class="section-title">Fan Favourite Treats</h2>
+          <p class="section-subtitle">
+            Every product is made fresh with premium ingredients so you get the
+            best flavour in every single bite.
+          </p>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="grid-4">
+          <div class="product-card">
+            <div class="product-card-emoji">🍩</div>
+            <div class="product-card-body">
+              <h3>Donuts</h3>
+              <p>
+                Soft, glazed, and filled with flavour — classic or stuffed, your
+                choice.
+              </p>
+              <span class="product-tag">Bestseller</span>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-card-emoji">🌀</div>
+            <div class="product-card-body">
+              <h3>Chin-Chin</h3>
+              <p>
+                Crispy, crunchy fried dough snacks perfectly seasoned for
+                snacking.
+              </p>
+              <span class="product-tag">Popular</span>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-card-emoji">🟡</div>
+            <div class="product-card-body">
+              <h3>Puff-Puff</h3>
+              <p>
+                Light, fluffy deep-fried dough balls — a true Nigerian
+                street-food classic.
+              </p>
+              <span class="product-tag">Local Fave</span>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-card-emoji">🎂</div>
+            <div class="product-card-body">
+              <h3>Cakes</h3>
+              <p>
+                Beautifully baked celebration cakes for every occasion and
+                taste.
+              </p>
+              <span class="product-tag">Custom Orders</span>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-card-emoji">🥟</div>
+            <div class="product-card-body">
+              <h3>Small Chops</h3>
+              <p>
+                Party-perfect assorted finger foods for events and gatherings.
+              </p>
+              <span class="product-tag">Events</span>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-card-emoji">🐟</div>
+            <div class="product-card-body">
+              <h3>Fish Pies</h3>
+              <p>Savoury pastry pockets stuffed with seasoned fish filling.</p>
+              <span class="product-tag">Savoury</span>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-card-emoji">🥚</div>
+            <div class="product-card-body">
+              <h3>Egg Rolls</h3>
+              <p>Golden deep-fried dough wrapped around whole boiled eggs.</p>
+              <span class="product-tag">Snack</span>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-card-emoji">🍪</div>
+            <div class="product-card-body">
+              <h3>Cookies</h3>
+              <p>
+                Crispy or chewy butter cookies baked fresh in dozens of
+                flavours.
+              </p>
+              <span class="product-tag">Treat</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- View All CTA -->
+        <div class="text-center" style="margin-top: 2.5rem">
+          <a href="Services.html" class="btn btn-primary">View All Products</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       WHY CHOOSE US / FEATURES SECTION
+       ============================================================ -->
+    <section class="section section--alt">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="text-center">
+          <span class="section-label">Why Tasty Tedoz</span>
+          <h2 class="section-title">The Difference is in Every Bite</h2>
+          <p class="section-subtitle">
+            We bake with care, use real ingredients, and take pride in making
+            every customer smile.
+          </p>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="grid-4">
+          <div class="feature-box">
+            <div class="feature-icon">🌿</div>
+            <h3>Fresh Daily</h3>
+            <p>
+              All products are baked fresh every morning — never day-old, always
+              delicious.
+            </p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon">❤️</div>
+            <h3>Made with Love</h3>
+            <p>
+              Every recipe is crafted with passion, tradition, and the highest
+              quality care.
+            </p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon">🎁</div>
+            <h3>Custom Orders</h3>
+            <p>
+              We take bespoke cake and bulk snack orders for birthdays, events,
+              and occasions.
+            </p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon">🚀</div>
+            <h3>Fast Delivery</h3>
+            <p>
+              Quick and reliable delivery so your pastries arrive warm and in
+              perfect condition.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       TESTIMONIALS SECTION
+       ============================================================ -->
+    <section class="section">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="text-center">
+          <span class="section-label">Customer Love</span>
+          <h2 class="section-title">What Our Customers Say</h2>
+          <p class="section-subtitle">
+            Real reviews from real people who absolutely love our pastries.
+          </p>
+        </div>
+
+        <!-- Testimonials Grid -->
+        <div class="grid-3">
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">
+              "The puff-puff from Tasty Tedoz is honestly the best I have had.
+              Light, perfectly sweet, and always fresh. My go-to every weekend!"
+            </p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">👩🏾</div>
+              <div>
+                <div class="testimonial-author-name">Amaka O.</div>
+                <div class="testimonial-author-role">Regular Customer</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">
+              "Ordered a custom birthday cake and it exceeded expectations! The
+              flavour, decoration, and delivery were all spot-on. Highly
+              recommend."
+            </p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">👨🏾</div>
+              <div>
+                <div class="testimonial-author-name">Chidi B.</div>
+                <div class="testimonial-author-role">Event Planner</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">
+              "Their small chops were the highlight of our office party.
+              Everyone kept asking where we got them. Tasty Tedoz never
+              disappoints!"
+            </p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">👩🏾</div>
+              <div>
+                <div class="testimonial-author-name">Ngozi K.</div>
+                <div class="testimonial-author-role">Corporate Client</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       NEWSLETTER / CTA SECTION
+       ============================================================ -->
+    <section class="newsletter">
+      <div class="container">
+        <h2>🍩 Get Fresh Deals in Your Inbox</h2>
+        <p>
+          Subscribe for weekly specials, new product launches, and exclusive
+          pastry offers.
+        </p>
+        <form class="newsletter-form" onsubmit="return false;">
+          <input
+            type="email"
+            placeholder="Enter your email address"
+            aria-label="Email address"
+          />
+          <button type="submit" class="btn btn-accent">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- Brand Column -->
+          <div class="footer-brand">
+            <div class="logo-text">Tasty <span>Tedoz</span></div>
+            <p>
+              Handcrafted pastries baked fresh daily. From our kitchen to your
+              table, every bite is made with love and quality ingredients.
+            </p>
+            <div class="footer-socials">
+              <a href="#" aria-label="Facebook">📘</a>
+              <a href="#" aria-label="Instagram">📷</a>
+              <a href="#" aria-label="Twitter">🐦</a>
+              <a href="#" aria-label="WhatsApp">💬</a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="About.html">About Us</a></li>
+              <li><a href="Services.html">Our Products</a></li>
+              <li><a href="Blog.html">Blog</a></li>
+              <li><a href="Contact.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Products Column -->
+          <div class="footer-col">
+            <h4>Our Products</h4>
+            <ul>
+              <li><a href="Services.html">Donuts</a></li>
+              <li><a href="Services.html">Chin-Chin</a></li>
+              <li><a href="Services.html">Puff-Puff</a></li>
+              <li><a href="Services.html">Cakes</a></li>
+              <li><a href="Services.html">Small Chops</a></li>
+              <li><a href="Services.html">Cookies &amp; More</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact Column -->
+          <div class="footer-col">
+            <h4>Contact Us</h4>
+            <ul class="footer-contact">
+              <li><span>📍</span> Porshe Estate Phase 2</li>
+              <li>
+                <span>📞</span>
+                <a href="tel:+2348034499593">+234 803 449 9593</a>
+              </li>
+              <li>
+                <span>✉️</span>
+                <a href="mailto:tastytedoz@protonmail.com"
+                  >tastytedoz@protonmail.com</a
+                >
+              </li>
+              <li><span>🕐</span> Mon – Sat: 8am – 7pm</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Footer Bottom Bar -->
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 <span>Tasty Tedoz</span>. All rights reserved. Made with
+            ❤️ for pastry lovers.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ============================================================
+       BACK-TO-TOP BUTTON
+       ============================================================ -->
+    <button id="backToTop" aria-label="Back to top">↑</button>
+
+    <!-- ============================================================
+       JAVASCRIPT – Nav toggle & Back-to-top
+       ============================================================ -->
+    <script>
+      // Mobile hamburger toggle
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("navLinks");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("open");
+        navLinks.classList.toggle("open");
+      });
+
+      // Close nav when a link is clicked
+      navLinks.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("open");
+          navLinks.classList.remove("open");
+        });
+      });
+
+      // Back-to-top visibility
+      const backToTop = document.getElementById("backToTop");
+      window.addEventListener("scroll", () => {
+        backToTop.classList.toggle("visible", window.scrollY > 400);
+      });
+
+      backToTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    </script>
+  </body>
+</html>

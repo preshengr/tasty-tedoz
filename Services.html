@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Explore all Tasty Tedoz pastries and snacks — donuts, chin-chin, puff-puff, cakes, small chops, fish pies, cookies, egg rolls and more."
+    />
+    <title>Our Products | Tasty Tedoz</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Extra styles for Services page filter tabs -->
+    <style>
+      /* ============================================================
+       SERVICES-PAGE SPECIFIC STYLES
+       ============================================================ */
+      .filter-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        justify-content: center;
+        margin-bottom: 2.5rem;
+      }
+
+      .filter-btn {
+        padding: 0.5rem 1.3rem;
+        border: 2px solid var(--border);
+        border-radius: 3rem;
+        background: var(--white);
+        font-family: var(--font-body);
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.25s ease;
+      }
+
+      .filter-btn:hover,
+      .filter-btn.active {
+        background: var(--primary);
+        border-color: var(--primary);
+        color: var(--white);
+      }
+
+      /* Service offering strip */
+      .service-strip {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+        padding: 1.75rem 2rem;
+        background: var(--white);
+        border-radius: var(--radius);
+        box-shadow: var(--card-shadow);
+        border: 1px solid var(--border);
+        margin-bottom: 2rem;
+      }
+
+      .service-strip-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--text-muted);
+      }
+
+      .service-strip-item span:first-child {
+        font-size: 1.2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ============================================================
+       HEADER / NAVIGATION
+       ============================================================ -->
+    <header class="site-header">
+      <div class="container">
+        <nav class="navbar">
+          <!-- Logo -->
+          <a href="index.html" class="nav-logo">
+            <div class="logo-icon">🍩</div>
+            <div class="logo-text">Tasty <span>Tedoz</span></div>
+          </a>
+
+          <!-- Desktop Navigation Links -->
+          <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Services.html" class="active">Products</a></li>
+            <li><a href="Blog.html">Blog</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+          </ul>
+
+          <!-- Hamburger Toggle (mobile) -->
+          <button
+            class="hamburger"
+            id="hamburger"
+            aria-label="Toggle navigation"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ============================================================
+       PAGE BANNER / HERO
+       ============================================================ -->
+    <section class="page-banner">
+      <div class="container">
+        <h1>Our Products &amp; Services</h1>
+        <p>Fresh pastries and snacks baked daily with premium ingredients.</p>
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <span>Products</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       SERVICE HIGHLIGHTS STRIP
+       ============================================================ -->
+    <section class="section" style="padding-bottom: 0">
+      <div class="container">
+        <div class="service-strip">
+          <div class="service-strip-item"><span>🚀</span> Fast Delivery</div>
+          <div class="service-strip-item"><span>🌿</span> Fresh Daily</div>
+          <div class="service-strip-item"><span>🎁</span> Custom Orders</div>
+          <div class="service-strip-item"><span>🎂</span> Event Catering</div>
+          <div class="service-strip-item"><span>📦</span> Bulk Orders</div>
+          <div class="service-strip-item"><span>❤️</span> Made with Love</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       PRODUCTS CATALOGUE SECTION
+       ============================================================ -->
+    <section class="section">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="text-center">
+          <span class="section-label">Full Menu</span>
+          <h2 class="section-title">Everything We Bake</h2>
+          <p class="section-subtitle">
+            From sweet treats to savoury snacks, we have something for every
+            craving. All made fresh and ready to order.
+          </p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="filter-tabs">
+          <button class="filter-btn active" data-filter="all">
+            All Products
+          </button>
+          <button class="filter-btn" data-filter="sweet">Sweet Treats</button>
+          <button class="filter-btn" data-filter="savoury">Savoury</button>
+          <button class="filter-btn" data-filter="snacks">Snacks</button>
+          <button class="filter-btn" data-filter="events">Events</button>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="grid-3" id="productsGrid">
+          <!-- Donuts -->
+          <div class="product-card" data-category="sweet">
+            <div class="product-card-emoji">🍩</div>
+            <div class="product-card-body">
+              <h3>Donuts</h3>
+              <p>
+                Our signature fluffy ring donuts come in glazed, sugar-dusted,
+                chocolate-dipped, and filled varieties. Baked fresh every
+                morning for maximum softness.
+              </p>
+              <span class="product-tag">Bestseller</span>
+            </div>
+          </div>
+
+          <!-- Chin-Chin -->
+          <div class="product-card" data-category="snacks">
+            <div class="product-card-emoji">🌀</div>
+            <div class="product-card-body">
+              <h3>Chin-Chin</h3>
+              <p>
+                Perfectly seasoned, crispy fried dough pieces made from our
+                original recipe. Available in plain, spicy, and coconut
+                flavours. Great for snacking or gifting.
+              </p>
+              <span class="product-tag">Popular</span>
+            </div>
+          </div>
+
+          <!-- Puff-Puff -->
+          <div class="product-card" data-category="sweet snacks">
+            <div class="product-card-emoji">🟡</div>
+            <div class="product-card-body">
+              <h3>Puff-Puff</h3>
+              <p>
+                Light and airy deep-fried dough balls with a soft centre and
+                crispy exterior. A beloved West African classic made just the
+                way grandma used to.
+              </p>
+              <span class="product-tag">Local Fave</span>
+            </div>
+          </div>
+
+          <!-- Cakes -->
+          <div class="product-card" data-category="sweet events">
+            <div class="product-card-emoji">🎂</div>
+            <div class="product-card-body">
+              <h3>Cakes</h3>
+              <p>
+                Celebration cakes for birthdays, weddings, anniversaries, and
+                every occasion in between. Available in dozens of flavours with
+                full custom decoration.
+              </p>
+              <span class="product-tag">Custom Orders</span>
+            </div>
+          </div>
+
+          <!-- Small Chops -->
+          <div class="product-card" data-category="savoury events">
+            <div class="product-card-emoji">🥟</div>
+            <div class="product-card-body">
+              <h3>Small Chops</h3>
+              <p>
+                A curated assortment of savoury finger foods perfect for
+                parties, corporate events, and gatherings. Includes spring
+                rolls, samosas, puff-puff, and mini sausage rolls.
+              </p>
+              <span class="product-tag">Events</span>
+            </div>
+          </div>
+
+          <!-- Fish Pies -->
+          <div class="product-card" data-category="savoury">
+            <div class="product-card-emoji">🐟</div>
+            <div class="product-card-body">
+              <h3>Fish Pies</h3>
+              <p>
+                Flaky golden pastry shells encasing a richly seasoned fish
+                filling. Each bite delivers bold flavour balanced with a
+                perfectly baked crust.
+              </p>
+              <span class="product-tag">Savoury</span>
+            </div>
+          </div>
+
+          <!-- Egg Rolls -->
+          <div class="product-card" data-category="savoury snacks">
+            <div class="product-card-emoji">🥚</div>
+            <div class="product-card-body">
+              <h3>Egg Rolls</h3>
+              <p>
+                Whole boiled eggs wrapped in smooth, seasoned dough and
+                deep-fried to golden perfection. A hearty, satisfying on-the-go
+                snack.
+              </p>
+              <span class="product-tag">Snack</span>
+            </div>
+          </div>
+
+          <!-- Cookies -->
+          <div class="product-card" data-category="sweet snacks">
+            <div class="product-card-emoji">🍪</div>
+            <div class="product-card-body">
+              <h3>Cookies</h3>
+              <p>
+                Buttery baked cookies available in choc-chip, coconut, vanilla,
+                peanut, and shortbread varieties. Crispy edges, chewy centres.
+              </p>
+              <span class="product-tag">Treat</span>
+            </div>
+          </div>
+
+          <!-- Chips -->
+          <div class="product-card" data-category="snacks">
+            <div class="product-card-emoji">🟤</div>
+            <div class="product-card-body">
+              <h3>Chips</h3>
+              <p>
+                Crispy homemade chips seasoned with our signature spice blend. A
+                savoury snack that pairs perfectly with everything — or just on
+                its own.
+              </p>
+              <span class="product-tag">Snack</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       SPECIAL SERVICES SECTION (Event Catering, Custom Cakes etc)
+       ============================================================ -->
+    <section class="section section--alt">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="text-center">
+          <span class="section-label">Special Services</span>
+          <h2 class="section-title">Beyond the Counter</h2>
+          <p class="section-subtitle">
+            We go beyond standard baking to offer specialised services for
+            events, businesses, and personal celebrations.
+          </p>
+        </div>
+
+        <!-- Services Grid -->
+        <div class="grid-2">
+          <div
+            style="
+              background: var(--white);
+              border-radius: var(--radius);
+              padding: 2.5rem;
+              box-shadow: var(--card-shadow);
+              border: 1px solid var(--border);
+              display: flex;
+              gap: 1.5rem;
+              align-items: flex-start;
+            "
+          >
+            <div style="font-size: 3rem; flex-shrink: 0">🎂</div>
+            <div>
+              <h3 style="margin-bottom: 0.5rem">Custom Cake Orders</h3>
+              <p
+                style="
+                  color: var(--text-muted);
+                  font-size: 0.92rem;
+                  margin-bottom: 1rem;
+                "
+              >
+                Need a personalised cake for a birthday, wedding, baby shower,
+                or corporate event? We design and bake fully custom cakes in any
+                flavour, size, and decoration style. Place your order at least 3
+                days in advance.
+              </p>
+              <a
+                href="Contact.html"
+                class="btn btn-primary"
+                style="font-size: 0.85rem; padding: 0.6rem 1.4rem"
+                >Order a Cake</a
+              >
+            </div>
+          </div>
+
+          <div
+            style="
+              background: var(--white);
+              border-radius: var(--radius);
+              padding: 2.5rem;
+              box-shadow: var(--card-shadow);
+              border: 1px solid var(--border);
+              display: flex;
+              gap: 1.5rem;
+              align-items: flex-start;
+            "
+          >
+            <div style="font-size: 3rem; flex-shrink: 0">🥟</div>
+            <div>
+              <h3 style="margin-bottom: 0.5rem">Event Catering</h3>
+              <p
+                style="
+                  color: var(--text-muted);
+                  font-size: 0.92rem;
+                  margin-bottom: 1rem;
+                "
+              >
+                From intimate family gatherings to large corporate events, our
+                small chops and pastry platters are designed to impress. We
+                handle everything from preparation to packaging and delivery.
+              </p>
+              <a
+                href="Contact.html"
+                class="btn btn-primary"
+                style="font-size: 0.85rem; padding: 0.6rem 1.4rem"
+                >Enquire Now</a
+              >
+            </div>
+          </div>
+
+          <div
+            style="
+              background: var(--white);
+              border-radius: var(--radius);
+              padding: 2.5rem;
+              box-shadow: var(--card-shadow);
+              border: 1px solid var(--border);
+              display: flex;
+              gap: 1.5rem;
+              align-items: flex-start;
+            "
+          >
+            <div style="font-size: 3rem; flex-shrink: 0">📦</div>
+            <div>
+              <h3 style="margin-bottom: 0.5rem">Bulk / Wholesale Orders</h3>
+              <p
+                style="
+                  color: var(--text-muted);
+                  font-size: 0.92rem;
+                  margin-bottom: 1rem;
+                "
+              >
+                Restaurants, schools, offices, and retail shops can take
+                advantage of our bulk ordering programme. Get consistent quality
+                at competitive prices with guaranteed regular supply.
+              </p>
+              <a
+                href="Contact.html"
+                class="btn btn-primary"
+                style="font-size: 0.85rem; padding: 0.6rem 1.4rem"
+                >Get a Quote</a
+              >
+            </div>
+          </div>
+
+          <div
+            style="
+              background: var(--white);
+              border-radius: var(--radius);
+              padding: 2.5rem;
+              box-shadow: var(--card-shadow);
+              border: 1px solid var(--border);
+              display: flex;
+              gap: 1.5rem;
+              align-items: flex-start;
+            "
+          >
+            <div style="font-size: 3rem; flex-shrink: 0">🎁</div>
+            <div>
+              <h3 style="margin-bottom: 0.5rem">Gift Hampers</h3>
+              <p
+                style="
+                  color: var(--text-muted);
+                  font-size: 0.92rem;
+                  margin-bottom: 1rem;
+                "
+              >
+                Send a delicious assortment of our best pastries as a gift for
+                loved ones, colleagues, or clients. We package beautifully and
+                can include personalised messages.
+              </p>
+              <a
+                href="Contact.html"
+                class="btn btn-primary"
+                style="font-size: 0.85rem; padding: 0.6rem 1.4rem"
+                >Order a Hamper</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       HOW TO ORDER SECTION
+       ============================================================ -->
+    <section class="section">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="text-center">
+          <span class="section-label">Simple Process</span>
+          <h2 class="section-title">How to Order from Us</h2>
+          <p class="section-subtitle">
+            Getting your favourite Tasty Tedoz pastries is easy — just follow
+            these simple steps.
+          </p>
+        </div>
+
+        <!-- Steps Grid -->
+        <div class="grid-4">
+          <div class="feature-box">
+            <div class="feature-icon">📞</div>
+            <h3>1. Contact Us</h3>
+            <p>
+              Reach out via phone, WhatsApp, or the contact form on our website.
+            </p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon">🛒</div>
+            <h3>2. Place Your Order</h3>
+            <p>
+              Tell us what you want, quantities, and any special customisations.
+            </p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon">👨🏾‍🍳</div>
+            <h3>3. We Bake Fresh</h3>
+            <p>
+              Your order is baked fresh with quality ingredients just for you.
+            </p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon">🚀</div>
+            <h3>4. Delivery / Pickup</h3>
+            <p>
+              Pick up from our location or have it delivered straight to your
+              door.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       CTA / NEWSLETTER SECTION
+       ============================================================ -->
+    <section class="newsletter">
+      <div class="container">
+        <h2>🍪 Ready to Satisfy Your Cravings?</h2>
+        <p>
+          Contact us today or subscribe for weekly deals and pastry updates.
+        </p>
+        <div
+          style="
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+          "
+        >
+          <a href="Contact.html" class="btn btn-accent">Order Now</a>
+          <a
+            href="tel:+2348034499593"
+            class="btn btn-outline"
+            style="color: #fff; border-color: rgba(255, 255, 255, 0.5)"
+            >Call Us</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="logo-text">Tasty <span>Tedoz</span></div>
+            <p>
+              Handcrafted pastries baked fresh daily. From our kitchen to your
+              table, every bite is made with love.
+            </p>
+            <div class="footer-socials">
+              <a href="#" aria-label="Facebook">📘</a>
+              <a href="#" aria-label="Instagram">📷</a>
+              <a href="#" aria-label="Twitter">🐦</a>
+              <a href="#" aria-label="WhatsApp">💬</a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="About.html">About Us</a></li>
+              <li><a href="Services.html">Our Products</a></li>
+              <li><a href="Blog.html">Blog</a></li>
+              <li><a href="Contact.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Our Products</h4>
+            <ul>
+              <li><a href="Services.html">Donuts</a></li>
+              <li><a href="Services.html">Chin-Chin</a></li>
+              <li><a href="Services.html">Puff-Puff</a></li>
+              <li><a href="Services.html">Cakes</a></li>
+              <li><a href="Services.html">Small Chops</a></li>
+              <li><a href="Services.html">Cookies &amp; More</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Contact Us</h4>
+            <ul class="footer-contact">
+              <li><span>📍</span> Porshe Estate Phase 2</li>
+              <li>
+                <span>📞</span>
+                <a href="tel:+2348034499593">+234 803 449 9593</a>
+              </li>
+              <li>
+                <span>✉️</span>
+                <a href="mailto:tastytedoz@protonmail.com"
+                  >tastytedoz@protonmail.com</a
+                >
+              </li>
+              <li><span>🕐</span> Mon – Sat: 8am – 7pm</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 <span>Tasty Tedoz</span>. All rights reserved. Made with
+            ❤️ for pastry lovers.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ============================================================
+       BACK-TO-TOP BUTTON
+       ============================================================ -->
+    <button id="backToTop" aria-label="Back to top">↑</button>
+
+    <!-- ============================================================
+       JAVASCRIPT – Nav, Filter Tabs, Back-to-top
+       ============================================================ -->
+    <script>
+      // Mobile hamburger toggle
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("navLinks");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("open");
+        navLinks.classList.toggle("open");
+      });
+
+      navLinks.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("open");
+          navLinks.classList.remove("open");
+        });
+      });
+
+      // Product filter tabs
+      const filterBtns = document.querySelectorAll(".filter-btn");
+      const products = document.querySelectorAll("#productsGrid .product-card");
+
+      filterBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filterBtns.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          const filter = btn.dataset.filter;
+
+          products.forEach((card) => {
+            const cats = card.dataset.category || "";
+            if (filter === "all" || cats.includes(filter)) {
+              card.style.display = "";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
+      });
+
+      // Back-to-top
+      const backToTop = document.getElementById("backToTop");
+      window.addEventListener("scroll", () => {
+        backToTop.classList.toggle("visible", window.scrollY > 400);
+      });
+
+      backToTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    </script>
+  </body>
+</html>

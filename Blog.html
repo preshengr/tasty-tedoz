@@ -1,0 +1,797 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Tasty Tedoz Blog — pastry tips, baking guides, recipes, and news from our kitchen. Learn the secrets behind your favourite snacks."
+    />
+    <title>Blog | Tasty Tedoz</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Blog-page specific styles -->
+    <style>
+      /* ============================================================
+       BLOG-PAGE SPECIFIC STYLES
+       ============================================================ */
+
+      /* Featured blog post (large card) */
+      .blog-featured {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        background: var(--white);
+        border-radius: var(--radius);
+        box-shadow: var(--card-shadow);
+        border: 1px solid var(--border);
+        overflow: hidden;
+        margin-bottom: 3rem;
+      }
+
+      .blog-featured-thumb {
+        background: linear-gradient(135deg, #3b1005, #d4470a);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 8rem;
+        min-height: 280px;
+      }
+
+      .blog-featured-body {
+        padding: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .blog-featured-body h2 {
+        font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+        margin-bottom: 0.75rem;
+        line-height: 1.3;
+      }
+
+      .blog-featured-body p {
+        color: var(--text-muted);
+        font-size: 0.92rem;
+        margin-bottom: 1.5rem;
+        flex: 1;
+      }
+
+      /* Blog category pill tabs */
+      .blog-filter {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin-bottom: 2rem;
+      }
+
+      .blog-filter-btn {
+        padding: 0.45rem 1.2rem;
+        border: 2px solid var(--border);
+        border-radius: 3rem;
+        background: var(--white);
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.25s ease;
+      }
+
+      .blog-filter-btn:hover,
+      .blog-filter-btn.active {
+        background: var(--primary);
+        border-color: var(--primary);
+        color: var(--white);
+      }
+
+      /* Sidebar widget */
+      .blog-sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .sidebar-widget {
+        background: var(--white);
+        border-radius: var(--radius);
+        box-shadow: var(--card-shadow);
+        border: 1px solid var(--border);
+        padding: 1.75rem;
+      }
+
+      .sidebar-widget h4 {
+        font-size: 1.05rem;
+        margin-bottom: 1.2rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 2px solid var(--border);
+      }
+
+      /* Popular posts list in sidebar */
+      .popular-post {
+        display: flex;
+        gap: 0.9rem;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .popular-post:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+
+      .popular-post-emoji {
+        font-size: 1.8rem;
+        flex-shrink: 0;
+        width: 44px;
+        height: 44px;
+        background: var(--bg-alt);
+        border-radius: 0.5rem;
+        display: grid;
+        place-items: center;
+      }
+
+      .popular-post-title {
+        font-size: 0.88rem;
+        font-weight: 600;
+        line-height: 1.35;
+        margin-bottom: 0.2rem;
+      }
+
+      .popular-post-date {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+      }
+
+      /* Tag cloud in sidebar */
+      .tag-cloud {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .tag {
+        display: inline-block;
+        font-size: 0.78rem;
+        font-weight: 600;
+        background: var(--bg-alt);
+        color: var(--text-muted);
+        padding: 0.3rem 0.75rem;
+        border-radius: 2rem;
+        border: 1px solid var(--border);
+        transition: var(--transition);
+        cursor: pointer;
+      }
+
+      .tag:hover {
+        background: var(--primary);
+        color: var(--white);
+        border-color: var(--primary);
+      }
+
+      /* Blog layout: main + sidebar */
+      .blog-layout {
+        display: grid;
+        grid-template-columns: 1fr 300px;
+        gap: 3rem;
+        align-items: start;
+      }
+
+      @media (max-width: 960px) {
+        .blog-featured {
+          grid-template-columns: 1fr;
+        }
+        .blog-featured-thumb {
+          min-height: 180px;
+          font-size: 5rem;
+        }
+        .blog-layout {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ============================================================
+       HEADER / NAVIGATION
+       ============================================================ -->
+    <header class="site-header">
+      <div class="container">
+        <nav class="navbar">
+          <!-- Logo -->
+          <a href="index.html" class="nav-logo">
+            <div class="logo-icon">🍩</div>
+            <div class="logo-text">Tasty <span>Tedoz</span></div>
+          </a>
+
+          <!-- Desktop Navigation Links -->
+          <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Services.html">Products</a></li>
+            <li><a href="Blog.html" class="active">Blog</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+          </ul>
+
+          <!-- Hamburger Toggle (mobile) -->
+          <button
+            class="hamburger"
+            id="hamburger"
+            aria-label="Toggle navigation"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ============================================================
+       PAGE BANNER / HERO
+       ============================================================ -->
+    <section class="page-banner">
+      <div class="container">
+        <h1>The Tasty Tedoz Blog</h1>
+        <p>
+          Pastry tips, recipes, baking secrets, and stories from our kitchen.
+        </p>
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <span>Blog</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       FEATURED POST SECTION
+       ============================================================ -->
+    <section class="section" style="padding-bottom: 0">
+      <div class="container">
+        <div class="text-center" style="margin-bottom: 2rem">
+          <span class="section-label">Featured Post</span>
+          <h2 class="section-title">This Week's Top Story</h2>
+        </div>
+
+        <!-- Large Featured Card -->
+        <div class="blog-featured">
+          <!-- Thumb / Illustration -->
+          <div class="blog-featured-thumb">🍩</div>
+
+          <!-- Content -->
+          <div class="blog-featured-body">
+            <span class="blog-category">Baking Tips</span>
+            <h2>The Secret to Making Perfect Puff-Puff Every Time</h2>
+            <div class="blog-meta">
+              <span>📅 12 May 2025</span>
+              <span>⏱ 5 min read</span>
+              <span>👤 Tasty Tedoz Team</span>
+            </div>
+            <p>
+              Puff-puff looks simple but getting the perfect texture — crispy
+              outside, light and airy inside — requires a few tricks most home
+              bakers overlook. We're sharing the exact technique our kitchen
+              uses every single day...
+            </p>
+            <a href="#" class="btn btn-primary" style="align-self: flex-start"
+              >Read Full Article →</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       BLOG POSTS + SIDEBAR SECTION
+       ============================================================ -->
+    <section class="section">
+      <div class="container">
+        <!-- Category Filter Tabs -->
+        <div class="blog-filter">
+          <button class="blog-filter-btn active" data-filter="all">
+            All Posts
+          </button>
+          <button class="blog-filter-btn" data-filter="tips">
+            Baking Tips
+          </button>
+          <button class="blog-filter-btn" data-filter="recipes">Recipes</button>
+          <button class="blog-filter-btn" data-filter="snacks">
+            Nigerian Snacks
+          </button>
+          <button class="blog-filter-btn" data-filter="events">
+            Events &amp; Occasions
+          </button>
+          <button class="blog-filter-btn" data-filter="nutrition">
+            Nutrition
+          </button>
+        </div>
+
+        <!-- Blog Layout: Posts + Sidebar -->
+        <div class="blog-layout">
+          <!-- Blog Posts Grid -->
+          <div>
+            <div class="grid-2" id="blogGrid">
+              <!-- Post 1 -->
+              <article class="blog-card" data-category="tips">
+                <div class="blog-card-thumb">🍪</div>
+                <div class="blog-card-body">
+                  <span class="blog-category">Baking Tips</span>
+                  <div class="blog-meta">
+                    <span>📅 5 May 2025</span>
+                    <span>⏱ 4 min read</span>
+                  </div>
+                  <h3>
+                    5 Mistakes That Ruin Your Cookies (And How to Fix Them)
+                  </h3>
+                  <p>
+                    Cookie baking seems straightforward until it isn't. Here are
+                    the five most common errors and exactly how to avoid them.
+                  </p>
+                  <a href="#" class="read-more">Read more →</a>
+                </div>
+              </article>
+
+              <!-- Post 2 -->
+              <article class="blog-card" data-category="recipes">
+                <div class="blog-card-thumb">🌀</div>
+                <div class="blog-card-body">
+                  <span class="blog-category">Recipes</span>
+                  <div class="blog-meta">
+                    <span>📅 28 Apr 2025</span>
+                    <span>⏱ 6 min read</span>
+                  </div>
+                  <h3>Classic Nigerian Chin-Chin: Our Full Home Recipe</h3>
+                  <p>
+                    From the right flour ratio to frying temperature, this
+                    comprehensive guide covers everything you need for the
+                    perfect chin-chin.
+                  </p>
+                  <a href="#" class="read-more">Read more →</a>
+                </div>
+              </article>
+
+              <!-- Post 3 -->
+              <article class="blog-card" data-category="events">
+                <div class="blog-card-thumb">🎂</div>
+                <div class="blog-card-body">
+                  <span class="blog-category">Events &amp; Occasions</span>
+                  <div class="blog-meta">
+                    <span>📅 20 Apr 2025</span>
+                    <span>⏱ 3 min read</span>
+                  </div>
+                  <h3>How to Choose the Perfect Cake for Any Occasion</h3>
+                  <p>
+                    Birthday, wedding, or corporate event — finding the right
+                    cake involves more than just flavour. Here's your complete
+                    guide.
+                  </p>
+                  <a href="#" class="read-more">Read more →</a>
+                </div>
+              </article>
+
+              <!-- Post 4 -->
+              <article class="blog-card" data-category="snacks">
+                <div class="blog-card-thumb">🥟</div>
+                <div class="blog-card-body">
+                  <span class="blog-category">Nigerian Snacks</span>
+                  <div class="blog-meta">
+                    <span>📅 14 Apr 2025</span>
+                    <span>⏱ 5 min read</span>
+                  </div>
+                  <h3>A Brief History of Small Chops in Nigerian Culture</h3>
+                  <p>
+                    Small chops are more than party food — they're a cultural
+                    institution. We trace the origin and evolution of this
+                    beloved tradition.
+                  </p>
+                  <a href="#" class="read-more">Read more →</a>
+                </div>
+              </article>
+
+              <!-- Post 5 -->
+              <article class="blog-card" data-category="tips">
+                <div class="blog-card-thumb">🍩</div>
+                <div class="blog-card-body">
+                  <span class="blog-category">Baking Tips</span>
+                  <div class="blog-meta">
+                    <span>📅 7 Apr 2025</span>
+                    <span>⏱ 4 min read</span>
+                  </div>
+                  <h3>Why Dough Temperature Matters More Than You Think</h3>
+                  <p>
+                    Temperature affects texture, rise, and flavour. Whether
+                    you're making donuts or pies, this guide will change your
+                    baking forever.
+                  </p>
+                  <a href="#" class="read-more">Read more →</a>
+                </div>
+              </article>
+
+              <!-- Post 6 -->
+              <article class="blog-card" data-category="nutrition">
+                <div class="blog-card-thumb">🌿</div>
+                <div class="blog-card-body">
+                  <span class="blog-category">Nutrition</span>
+                  <div class="blog-meta">
+                    <span>📅 1 Apr 2025</span>
+                    <span>⏱ 4 min read</span>
+                  </div>
+                  <h3>Enjoying Pastries Mindfully: Balance, Not Deprivation</h3>
+                  <p>
+                    Pastries are a joy, not a guilt. Learn how to incorporate
+                    your favourite treats into a balanced diet without
+                    overthinking it.
+                  </p>
+                  <a href="#" class="read-more">Read more →</a>
+                </div>
+              </article>
+
+              <!-- Post 7 -->
+              <article class="blog-card" data-category="recipes">
+                <div class="blog-card-thumb">🥚</div>
+                <div class="blog-card-body">
+                  <span class="blog-category">Recipes</span>
+                  <div class="blog-meta">
+                    <span>📅 22 Mar 2025</span>
+                    <span>⏱ 5 min read</span>
+                  </div>
+                  <h3>Egg Rolls 101: Getting That Perfectly Crispy Exterior</h3>
+                  <p>
+                    The egg roll's signature crunch comes down to dough
+                    thickness, oil temperature, and timing. We break it all down
+                    step-by-step.
+                  </p>
+                  <a href="#" class="read-more">Read more →</a>
+                </div>
+              </article>
+
+              <!-- Post 8 -->
+              <article class="blog-card" data-category="events">
+                <div class="blog-card-thumb">🎉</div>
+                <div class="blog-card-body">
+                  <span class="blog-category">Events &amp; Occasions</span>
+                  <div class="blog-meta">
+                    <span>📅 15 Mar 2025</span>
+                    <span>⏱ 3 min read</span>
+                  </div>
+                  <h3>
+                    Planning a Corporate Event? Here's Why Pastries are a Must
+                  </h3>
+                  <p>
+                    From breakfast meetings to evening receptions, quality
+                    pastries make every corporate event more memorable and
+                    professional.
+                  </p>
+                  <a href="#" class="read-more">Read more →</a>
+                </div>
+              </article>
+            </div>
+
+            <!-- Pagination -->
+            <div
+              style="
+                display: flex;
+                justify-content: center;
+                gap: 0.5rem;
+                margin-top: 2.5rem;
+                flex-wrap: wrap;
+              "
+            >
+              <button
+                class="btn btn-primary"
+                style="padding: 0.55rem 1.2rem; font-size: 0.88rem"
+              >
+                ← Prev
+              </button>
+              <button
+                class="btn btn-primary"
+                style="padding: 0.55rem 1.2rem; font-size: 0.88rem"
+              >
+                1
+              </button>
+              <button
+                class="btn btn-outline"
+                style="padding: 0.55rem 1.2rem; font-size: 0.88rem"
+              >
+                2
+              </button>
+              <button
+                class="btn btn-outline"
+                style="padding: 0.55rem 1.2rem; font-size: 0.88rem"
+              >
+                3
+              </button>
+              <button
+                class="btn btn-outline"
+                style="padding: 0.55rem 1.2rem; font-size: 0.88rem"
+              >
+                Next →
+              </button>
+            </div>
+          </div>
+
+          <!-- Sidebar -->
+          <aside class="blog-sidebar">
+            <!-- About Widget -->
+            <div class="sidebar-widget" style="text-align: center">
+              <div style="font-size: 4rem; margin-bottom: 0.75rem">🍩</div>
+              <h4 style="border: none; padding: 0; margin-bottom: 0.5rem">
+                About This Blog
+              </h4>
+              <p
+                style="
+                  font-size: 0.85rem;
+                  color: var(--text-muted);
+                  margin-bottom: 1rem;
+                "
+              >
+                Welcome to the Tasty Tedoz blog! We share baking tips, recipes,
+                and all things pastry to help you love food even more.
+              </p>
+              <a
+                href="About.html"
+                class="btn btn-outline"
+                style="font-size: 0.82rem; padding: 0.5rem 1.1rem"
+                >Learn About Us</a
+              >
+            </div>
+
+            <!-- Popular Posts Widget -->
+            <div class="sidebar-widget">
+              <h4>🔥 Popular Posts</h4>
+
+              <div class="popular-post">
+                <div class="popular-post-emoji">🍩</div>
+                <div>
+                  <div class="popular-post-title">
+                    Secret to Perfect Puff-Puff
+                  </div>
+                  <div class="popular-post-date">📅 12 May 2025</div>
+                </div>
+              </div>
+
+              <div class="popular-post">
+                <div class="popular-post-emoji">🌀</div>
+                <div>
+                  <div class="popular-post-title">Classic Chin-Chin Recipe</div>
+                  <div class="popular-post-date">📅 28 Apr 2025</div>
+                </div>
+              </div>
+
+              <div class="popular-post">
+                <div class="popular-post-emoji">🎂</div>
+                <div>
+                  <div class="popular-post-title">
+                    Choosing the Perfect Cake
+                  </div>
+                  <div class="popular-post-date">📅 20 Apr 2025</div>
+                </div>
+              </div>
+
+              <div class="popular-post">
+                <div class="popular-post-emoji">🥚</div>
+                <div>
+                  <div class="popular-post-title">Crispy Egg Rolls 101</div>
+                  <div class="popular-post-date">📅 22 Mar 2025</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tag Cloud Widget -->
+            <div class="sidebar-widget">
+              <h4>🏷️ Topics</h4>
+              <div class="tag-cloud">
+                <span class="tag">Puff-Puff</span>
+                <span class="tag">Donuts</span>
+                <span class="tag">Chin-Chin</span>
+                <span class="tag">Cakes</span>
+                <span class="tag">Small Chops</span>
+                <span class="tag">Baking Tips</span>
+                <span class="tag">Recipes</span>
+                <span class="tag">Cookies</span>
+                <span class="tag">Egg Rolls</span>
+                <span class="tag">Events</span>
+                <span class="tag">Nutrition</span>
+                <span class="tag">Fish Pie</span>
+              </div>
+            </div>
+
+            <!-- Contact CTA Widget -->
+            <div
+              class="sidebar-widget"
+              style="
+                background: linear-gradient(135deg, #3b1005, #d4470a);
+                border-color: transparent;
+                color: #fff;
+                text-align: center;
+              "
+            >
+              <h4
+                style="
+                  border: none;
+                  padding: 0;
+                  color: #fff;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                🍪 Ready to Order?
+              </h4>
+              <p
+                style="
+                  font-size: 0.85rem;
+                  color: rgba(255, 255, 255, 0.8);
+                  margin-bottom: 1.2rem;
+                "
+              >
+                Love what you see? Contact us to place an order today!
+              </p>
+              <a
+                href="Contact.html"
+                class="btn btn-accent"
+                style="font-size: 0.85rem; padding: 0.55rem 1.3rem"
+                >Order Now</a
+              >
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       NEWSLETTER / CTA SECTION
+       ============================================================ -->
+    <section class="newsletter">
+      <div class="container">
+        <h2>✍️ Never Miss a New Recipe</h2>
+        <p>
+          Subscribe to the Tasty Tedoz blog for weekly pastry tips, recipes, and
+          exclusive deals.
+        </p>
+        <form class="newsletter-form" onsubmit="return false;">
+          <input
+            type="email"
+            placeholder="Enter your email address"
+            aria-label="Email address"
+          />
+          <button type="submit" class="btn btn-accent">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="logo-text">Tasty <span>Tedoz</span></div>
+            <p>
+              Handcrafted pastries baked fresh daily. From our kitchen to your
+              table, every bite is made with love.
+            </p>
+            <div class="footer-socials">
+              <a href="#" aria-label="Facebook">📘</a>
+              <a href="#" aria-label="Instagram">📷</a>
+              <a href="#" aria-label="Twitter">🐦</a>
+              <a href="#" aria-label="WhatsApp">💬</a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="About.html">About Us</a></li>
+              <li><a href="Services.html">Our Products</a></li>
+              <li><a href="Blog.html">Blog</a></li>
+              <li><a href="Contact.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Our Products</h4>
+            <ul>
+              <li><a href="Services.html">Donuts</a></li>
+              <li><a href="Services.html">Chin-Chin</a></li>
+              <li><a href="Services.html">Puff-Puff</a></li>
+              <li><a href="Services.html">Cakes</a></li>
+              <li><a href="Services.html">Small Chops</a></li>
+              <li><a href="Services.html">Cookies &amp; More</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Contact Us</h4>
+            <ul class="footer-contact">
+              <li><span>📍</span> Porshe Estate Phase 2</li>
+              <li>
+                <span>📞</span>
+                <a href="tel:+2348034499593">+234 803 449 9593</a>
+              </li>
+              <li>
+                <span>✉️</span>
+                <a href="mailto:tastytedoz@protonmail.com"
+                  >tastytedoz@protonmail.com</a
+                >
+              </li>
+              <li><span>🕐</span> Mon – Sat: 8am – 7pm</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 <span>Tasty Tedoz</span>. All rights reserved. Made with
+            ❤️ for pastry lovers.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ============================================================
+       BACK-TO-TOP BUTTON
+       ============================================================ -->
+    <button id="backToTop" aria-label="Back to top">↑</button>
+
+    <!-- ============================================================
+       JAVASCRIPT – Nav, Blog Filter, Back-to-top
+       ============================================================ -->
+    <script>
+      // Mobile hamburger toggle
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("navLinks");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("open");
+        navLinks.classList.toggle("open");
+      });
+
+      navLinks.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("open");
+          navLinks.classList.remove("open");
+        });
+      });
+
+      // Blog category filter
+      const filterBtns = document.querySelectorAll(".blog-filter-btn");
+      const blogCards = document.querySelectorAll("#blogGrid .blog-card");
+
+      filterBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filterBtns.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          const filter = btn.dataset.filter;
+
+          blogCards.forEach((card) => {
+            const cat = card.dataset.category || "";
+            card.style.display =
+              filter === "all" || cat === filter ? "" : "none";
+          });
+        });
+      });
+
+      // Back-to-top
+      const backToTop = document.getElementById("backToTop");
+      window.addEventListener("scroll", () => {
+        backToTop.classList.toggle("visible", window.scrollY > 400);
+      });
+
+      backToTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    </script>
+  </body>
+</html>

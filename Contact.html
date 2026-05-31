@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Contact Tasty Tedoz — place an order, ask about custom cakes, or find us at Porshe Estate Phase 2. Call +2348034499593 or email tastytedoz@protonmail.com."
+    />
+    <title>Contact Us | Tasty Tedoz</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- ============================================================
+       HEADER / NAVIGATION
+       ============================================================ -->
+    <header class="site-header">
+      <div class="container">
+        <nav class="navbar">
+          <!-- Logo -->
+          <a href="index.html" class="nav-logo">
+            <div class="logo-icon">🍩</div>
+            <div class="logo-text">Tasty <span>Tedoz</span></div>
+          </a>
+
+          <!-- Desktop Navigation Links -->
+          <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Services.html">Products</a></li>
+            <li><a href="Blog.html">Blog</a></li>
+            <li><a href="Contact.html" class="active">Contact</a></li>
+          </ul>
+
+          <!-- Hamburger Toggle (mobile) -->
+          <button
+            class="hamburger"
+            id="hamburger"
+            aria-label="Toggle navigation"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ============================================================
+       PAGE BANNER / HERO
+       ============================================================ -->
+    <section class="page-banner">
+      <div class="container">
+        <h1>Get In Touch</h1>
+        <p>
+          We'd love to hear from you — orders, questions, or just to say hello!
+        </p>
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <span>Contact</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       CONTACT INFO + FORM SECTION
+       ============================================================ -->
+    <section class="section">
+      <div class="container">
+        <div class="contact-grid">
+          <!-- Contact Information Column -->
+          <div>
+            <span class="section-label">Reach Us</span>
+            <h2
+              class="section-title"
+              style="font-size: clamp(1.5rem, 3vw, 2.2rem)"
+            >
+              We're Always Happy to Help
+            </h2>
+            <p style="color: var(--text-muted); margin-bottom: 2rem">
+              Whether you're placing an order, enquiring about custom cakes, or
+              need help with a large event, our team is ready to assist you.
+            </p>
+
+            <!-- Location -->
+            <div class="contact-info-item">
+              <div class="contact-icon">📍</div>
+              <div class="contact-info-text">
+                <h4>Our Location</h4>
+                <p>Porshe Estate Phase 2</p>
+              </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="contact-info-item">
+              <div class="contact-icon">📞</div>
+              <div class="contact-info-text">
+                <h4>Phone / WhatsApp</h4>
+                <a href="tel:+2348034499593">+234 803 449 9593</a>
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="contact-info-item">
+              <div class="contact-icon">✉️</div>
+              <div class="contact-info-text">
+                <h4>Email Address</h4>
+                <a href="mailto:tastytedoz@protonmail.com"
+                  >tastytedoz@protonmail.com</a
+                >
+              </div>
+            </div>
+
+            <!-- Opening Hours -->
+            <div class="contact-info-item">
+              <div class="contact-icon">🕐</div>
+              <div class="contact-info-text">
+                <h4>Opening Hours</h4>
+                <p>Monday – Saturday: 8:00am – 7:00pm</p>
+                <p>Sunday: 10:00am – 4:00pm</p>
+              </div>
+            </div>
+
+            <!-- Quick Note -->
+            <div
+              style="
+                background: var(--bg-alt);
+                border-left: 4px solid var(--primary);
+                padding: 1rem 1.25rem;
+                border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+                margin-top: 1rem;
+              "
+            >
+              <p style="font-size: 0.88rem; color: var(--text-muted)">
+                <strong style="color: var(--primary)">💡 Quick Tip:</strong>
+                For custom cakes and bulk orders, please contact us at least
+                <strong>3 days in advance</strong> to ensure we can accommodate
+                you.
+              </p>
+            </div>
+          </div>
+
+          <!-- Contact Form Column -->
+          <div class="contact-form">
+            <h3 style="font-size: 1.4rem; margin-bottom: 0.4rem">
+              Send Us a Message
+            </h3>
+            <p
+              style="
+                color: var(--text-muted);
+                font-size: 0.88rem;
+                margin-bottom: 1.75rem;
+              "
+            >
+              Fill in the form below and we'll get back to you as soon as
+              possible.
+            </p>
+
+            <form id="contactForm" onsubmit="handleSubmit(event)">
+              <!-- Name Row -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="firstName">First Name *</label>
+                  <input
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    placeholder="John"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="lastName">Last Name *</label>
+                  <input
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    placeholder="Doe"
+                    required
+                  />
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="john@example.com"
+                  required
+                />
+              </div>
+
+              <!-- Phone -->
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="+234 800 000 0000"
+                />
+              </div>
+
+              <!-- Subject / Order Type -->
+              <div class="form-group">
+                <label for="subject">What is this about? *</label>
+                <select id="subject" name="subject" required>
+                  <option value="" disabled selected>Select a subject</option>
+                  <option value="general">General Enquiry</option>
+                  <option value="order">Place an Order</option>
+                  <option value="custom-cake">Custom Cake Order</option>
+                  <option value="event">Event Catering</option>
+                  <option value="bulk">Bulk / Wholesale</option>
+                  <option value="feedback">Feedback</option>
+                </select>
+              </div>
+
+              <!-- Message -->
+              <div class="form-group">
+                <label for="message">Your Message *</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Tell us what you need — product type, quantity, date, or any special requests..."
+                  required
+                ></textarea>
+              </div>
+
+              <!-- Submit Button -->
+              <button
+                type="submit"
+                class="btn btn-primary"
+                style="width: 100%; justify-content: center"
+              >
+                Send Message 🍩
+              </button>
+            </form>
+
+            <!-- Success Message (hidden by default) -->
+            <div
+              id="successMsg"
+              style="
+                display: none;
+                margin-top: 1.5rem;
+                background: #f0fdf4;
+                border: 1.5px solid #86efac;
+                border-radius: var(--radius-sm);
+                padding: 1.25rem;
+                text-align: center;
+              "
+            >
+              <div style="font-size: 2.5rem; margin-bottom: 0.5rem">✅</div>
+              <h4 style="margin-bottom: 0.3rem; color: #166534">
+                Message Sent!
+              </h4>
+              <p style="font-size: 0.88rem; color: #166534">
+                Thank you for reaching out. We'll get back to you within 24
+                hours.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       MAP PLACEHOLDER SECTION
+       ============================================================ -->
+    <section class="section section--alt" style="padding-top: 0">
+      <div class="container">
+        <div class="text-center" style="margin-bottom: 1.5rem">
+          <span class="section-label">Find Us</span>
+          <h2 class="section-title">Our Location</h2>
+          <p class="section-subtitle">
+            Visit us at Porshe Estate Phase 2. We're open six days a week and
+            always happy to see you.
+          </p>
+        </div>
+
+        <!-- Map embed placeholder -->
+        <div class="map-wrap">
+          <span style="font-size: 2rem">🗺️</span>
+          <span
+            >📍 Porshe Estate Phase 2 —
+            <a
+              href="https://maps.google.com"
+              target="_blank"
+              rel="noopener"
+              style="color: var(--primary); font-weight: 600"
+              >Open in Google Maps</a
+            ></span
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       QUICK CONTACT CHANNELS SECTION
+       ============================================================ -->
+    <section class="section">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-label">Other Ways to Reach Us</span>
+          <h2 class="section-title">Contact Channels</h2>
+        </div>
+
+        <div class="grid-3">
+          <div class="feature-box">
+            <div class="feature-icon">📞</div>
+            <h3>Call Us</h3>
+            <p style="margin-bottom: 0.75rem">
+              Speak directly with our team for instant assistance.
+            </p>
+            <a
+              href="tel:+2348034499593"
+              class="btn btn-primary"
+              style="font-size: 0.85rem; padding: 0.55rem 1.3rem"
+              >+234 803 449 9593</a
+            >
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon">💬</div>
+            <h3>WhatsApp</h3>
+            <p style="margin-bottom: 0.75rem">
+              Send us a WhatsApp message for quick orders and enquiries.
+            </p>
+            <a
+              href="https://wa.me/2348034499593"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-primary"
+              style="font-size: 0.85rem; padding: 0.55rem 1.3rem"
+              >Chat on WhatsApp</a
+            >
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon">✉️</div>
+            <h3>Email</h3>
+            <p style="margin-bottom: 0.75rem">
+              Drop us an email for detailed enquiries and custom orders.
+            </p>
+            <a
+              href="mailto:tastytedoz@protonmail.com"
+              class="btn btn-primary"
+              style="font-size: 0.85rem; padding: 0.55rem 1.3rem"
+              >Send an Email</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="logo-text">Tasty <span>Tedoz</span></div>
+            <p>
+              Handcrafted pastries baked fresh daily. From our kitchen to your
+              table, every bite is made with love.
+            </p>
+            <div class="footer-socials">
+              <a href="#" aria-label="Facebook">📘</a>
+              <a href="#" aria-label="Instagram">📷</a>
+              <a href="#" aria-label="Twitter">🐦</a>
+              <a href="#" aria-label="WhatsApp">💬</a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="About.html">About Us</a></li>
+              <li><a href="Services.html">Our Products</a></li>
+              <li><a href="Blog.html">Blog</a></li>
+              <li><a href="Contact.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Our Products</h4>
+            <ul>
+              <li><a href="Services.html">Donuts</a></li>
+              <li><a href="Services.html">Chin-Chin</a></li>
+              <li><a href="Services.html">Puff-Puff</a></li>
+              <li><a href="Services.html">Cakes</a></li>
+              <li><a href="Services.html">Small Chops</a></li>
+              <li><a href="Services.html">Cookies &amp; More</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Contact Us</h4>
+            <ul class="footer-contact">
+              <li><span>📍</span> Porshe Estate Phase 2</li>
+              <li>
+                <span>📞</span>
+                <a href="tel:+2348034499593">+234 803 449 9593</a>
+              </li>
+              <li>
+                <span>✉️</span>
+                <a href="mailto:tastytedoz@protonmail.com"
+                  >tastytedoz@protonmail.com</a
+                >
+              </li>
+              <li><span>🕐</span> Mon – Sat: 8am – 7pm</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 <span>Tasty Tedoz</span>. All rights reserved. Made with
+            ❤️ for pastry lovers.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ============================================================
+       BACK-TO-TOP BUTTON
+       ============================================================ -->
+    <button id="backToTop" aria-label="Back to top">↑</button>
+
+    <!-- ============================================================
+       JAVASCRIPT – Nav, Form, Back-to-top
+       ============================================================ -->
+    <script>
+      // Mobile hamburger toggle
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("navLinks");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("open");
+        navLinks.classList.toggle("open");
+      });
+
+      navLinks.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("open");
+          navLinks.classList.remove("open");
+        });
+      });
+
+      // Contact form submission (demo — no backend)
+      function handleSubmit(e) {
+        e.preventDefault();
+        document.getElementById("contactForm").style.display = "none";
+        document.getElementById("successMsg").style.display = "block";
+      }
+
+      // Back-to-top
+      const backToTop = document.getElementById("backToTop");
+      window.addEventListener("scroll", () => {
+        backToTop.classList.toggle("visible", window.scrollY > 400);
+      });
+
+      backToTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    </script>
+  </body>
+</html>
