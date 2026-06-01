@@ -15,68 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Extra styles for Services page filter tabs -->
-    <style>
-      /* ============================================================
-       SERVICES-PAGE SPECIFIC STYLES
-       ============================================================ */
-      .filter-tabs {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.6rem;
-        justify-content: center;
-        margin-bottom: 2.5rem;
-      }
-
-      .filter-btn {
-        padding: 0.5rem 1.3rem;
-        border: 2px solid var(--border);
-        border-radius: 3rem;
-        background: var(--white);
-        font-family: var(--font-body);
-        font-size: 0.88rem;
-        font-weight: 600;
-        color: var(--text-muted);
-        cursor: pointer;
-        transition: all 0.25s ease;
-      }
-
-      .filter-btn:hover,
-      .filter-btn.active {
-        background: var(--primary);
-        border-color: var(--primary);
-        color: var(--white);
-      }
-
-      /* Service offering strip */
-      .service-strip {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        align-items: center;
-        justify-content: center;
-        padding: 1.75rem 2rem;
-        background: var(--white);
-        border-radius: var(--radius);
-        box-shadow: var(--card-shadow);
-        border: 1px solid var(--border);
-        margin-bottom: 2rem;
-      }
-
-      .service-strip-item {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        font-size: 0.88rem;
-        font-weight: 600;
-        color: var(--text-muted);
-      }
-
-      .service-strip-item span:first-child {
-        font-size: 1.2rem;
-      }
-    </style>
+    <script src="./assets/js/script.js" defer></script>
   </head>
   <body>
     <!-- ============================================================
@@ -617,58 +556,5 @@
        BACK-TO-TOP BUTTON
        ============================================================ -->
     <button id="backToTop" aria-label="Back to top">↑</button>
-
-    <!-- ============================================================
-       JAVASCRIPT – Nav, Filter Tabs, Back-to-top
-       ============================================================ -->
-    <script>
-      // Mobile hamburger toggle
-      const hamburger = document.getElementById("hamburger");
-      const navLinks = document.getElementById("navLinks");
-
-      hamburger.addEventListener("click", () => {
-        hamburger.classList.toggle("open");
-        navLinks.classList.toggle("open");
-      });
-
-      navLinks.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => {
-          hamburger.classList.remove("open");
-          navLinks.classList.remove("open");
-        });
-      });
-
-      // Product filter tabs
-      const filterBtns = document.querySelectorAll(".filter-btn");
-      const products = document.querySelectorAll("#productsGrid .product-card");
-
-      filterBtns.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          filterBtns.forEach((b) => b.classList.remove("active"));
-          btn.classList.add("active");
-
-          const filter = btn.dataset.filter;
-
-          products.forEach((card) => {
-            const cats = card.dataset.category || "";
-            if (filter === "all" || cats.includes(filter)) {
-              card.style.display = "";
-            } else {
-              card.style.display = "none";
-            }
-          });
-        });
-      });
-
-      // Back-to-top
-      const backToTop = document.getElementById("backToTop");
-      window.addEventListener("scroll", () => {
-        backToTop.classList.toggle("visible", window.scrollY > 400);
-      });
-
-      backToTop.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
-    </script>
   </body>
 </html>
