@@ -654,8 +654,8 @@ h5 {
 }
 
 .team-avatar {
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--primary-light), var(--accent));
   display: grid;
@@ -664,6 +664,12 @@ h5 {
   margin: 0 auto 1rem;
 }
 
+.team-avatar img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+}
 .team-name {
   font-size: 1.1rem;
   margin-bottom: 0.25rem;
