@@ -197,6 +197,64 @@ h5 {
 }
 
 /* ============================================================
+   SERVICES PAGE: Filter tabs and service strip
+   ============================================================ */
+.filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.filter-btn {
+  padding: 0.5rem 1.3rem;
+  border: 2px solid var(--border);
+  border-radius: 3rem;
+  background: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--white);
+}
+
+.service-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1.75rem 2rem;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border);
+  margin-bottom: 2rem;
+}
+
+.service-strip-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.service-strip-item span:first-child {
+  font-size: 1.2rem;
+}
+
+/* ============================================================
    SECTION 5: NAVIGATION / HEADER
    ============================================================ */
 .site-header {
