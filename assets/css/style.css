@@ -130,6 +130,12 @@ h5 {
   gap: 2rem;
 }
 
+.grid-2 img {
+  width: 100px;
+  height: auto;
+  object-fit: cover;
+}
+
 .grid-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -573,6 +579,12 @@ h5 {
   text-align: center;
   font-size: 4.5rem;
   line-height: 1;
+}
+
+.product-card-emoji img {
+  width: 25rem;
+  height: auto;
+  object-fit: contain;
 }
 
 .product-card-body {
