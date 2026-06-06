@@ -286,7 +286,9 @@
         <!-- Features Grid -->
         <div class="grid-4">
           <div class="feature-box">
-            <div class="feature-icon">🌿</div>
+            <div class="feature-icon">
+              <img src="./assets/img/freshdaily.jpg" alt="Fresh Daily" />
+            </div>
             <h3>Fresh Daily</h3>
             <p>
               All products are baked fresh every morning — never day-old, always
@@ -295,7 +297,9 @@
           </div>
 
           <div class="feature-box">
-            <div class="feature-icon">❤️</div>
+            <div class="feature-icon">
+              <img src="./assets/img/made-with-love.jpg" alt="Made with Love" />
+            </div>
             <h3>Made with Love</h3>
             <p>
               Every recipe is crafted with passion, tradition, and the highest
@@ -304,7 +308,9 @@
           </div>
 
           <div class="feature-box">
-            <div class="feature-icon">🎁</div>
+            <div class="feature-icon">
+              <img src="./assets/img/custom-order.jpg" alt="Custom Orders" />
+            </div>
             <h3>Custom Orders</h3>
             <p>
               We take bespoke cake and bulk snack orders for birthdays, events,
@@ -313,7 +319,9 @@
           </div>
 
           <div class="feature-box">
-            <div class="feature-icon">🚀</div>
+            <div class="feature-icon">
+              <img src="./assets/img/fastdelivery.jpg" alt="Fast Delivery" />
+            </div>
             <h3>Fast Delivery</h3>
             <p>
               Quick and reliable delivery so your pastries arrive warm and in
@@ -347,7 +355,9 @@
               Light, perfectly sweet, and always fresh. My go-to every weekend!"
             </p>
             <div class="testimonial-author">
-              <div class="testimonial-avatar">👩🏾</div>
+              <div class="testimonial-avatar">
+                <img src="./assets/img/amaka.webp" />
+              </div>
               <div>
                 <div class="testimonial-author-name">Amaka O.</div>
                 <div class="testimonial-author-role">Regular Customer</div>
@@ -502,37 +512,5 @@
        BACK-TO-TOP BUTTON
        ============================================================ -->
     <button id="backToTop" aria-label="Back to top">↑</button>
-
-    <!-- ============================================================
-       JAVASCRIPT – Nav toggle & Back-to-top
-       ============================================================ -->
-    <script>
-      // Mobile hamburger toggle
-      const hamburger = document.getElementById("hamburger");
-      const navLinks = document.getElementById("navLinks");
-
-      hamburger.addEventListener("click", () => {
-        hamburger.classList.toggle("open");
-        navLinks.classList.toggle("open");
-      });
-
-      // Close nav when a link is clicked
-      navLinks.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => {
-          hamburger.classList.remove("open");
-          navLinks.classList.remove("open");
-        });
-      });
-
-      // Back-to-top visibility
-      const backToTop = document.getElementById("backToTop");
-      window.addEventListener("scroll", () => {
-        backToTop.classList.toggle("visible", window.scrollY > 400);
-      });
-
-      backToTop.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
-    </script>
   </body>
 </html>
