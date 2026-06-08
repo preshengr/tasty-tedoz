@@ -83,7 +83,7 @@
                 font-size: 8rem;
                 background: var(--bg-alt);
                 border-radius: 2rem;
-                padding: 3rem;
+                padding: 1rem;
                 display: inline-block;
                 line-height: 1;
               "
@@ -472,34 +472,5 @@
        BACK-TO-TOP BUTTON
        ============================================================ -->
     <button id="backToTop" aria-label="Back to top">↑</button>
-
-    <!-- ============================================================
-       JAVASCRIPT
-       ============================================================ -->
-    <script>
-      const hamburger = document.getElementById("hamburger");
-      const navLinks = document.getElementById("navLinks");
-
-      hamburger.addEventListener("click", () => {
-        hamburger.classList.toggle("open");
-        navLinks.classList.toggle("open");
-      });
-
-      navLinks.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => {
-          hamburger.classList.remove("open");
-          navLinks.classList.remove("open");
-        });
-      });
-
-      const backToTop = document.getElementById("backToTop");
-      window.addEventListener("scroll", () => {
-        backToTop.classList.toggle("visible", window.scrollY > 400);
-      });
-
-      backToTop.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
-    </script>
   </body>
 </html>
