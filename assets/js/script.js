@@ -235,3 +235,24 @@ window.addEventListener("scroll", () => {
 backToTop.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const videoWrapper = document.getElementById("videoWrapper");
+  const video = document.getElementById("myVideo");
+  const playBtn = document.getElementById("playBtn");
+
+  // Execution path when target elements are selected
+  function handlePlay() {
+    video.play();
+    videoWrapper.classList.add("is-playing");
+    // Shows built-in browser timeline, pause, and volume controls post-click
+    video.setAttribute("controls", "true");
+  }
+
+  // Interaction triggers
+  playBtn.addEventListener("click", handlePlay);
+  video.addEventListener("click", () => {
+    if (video.paused) {
+      handlePlay();
+    }
+  });
+});

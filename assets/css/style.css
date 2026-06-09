@@ -761,6 +761,62 @@ h5 {
   color: var(--text-muted);
 }
 
+/* VIDEO SYLES FOR THE ABOUT PAGE */
+/* Container defining standard video aspect ratio */
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  background-color: #000;
+}
+
+.video-container video {
+  width: 100%;
+  display: block;
+  cursor: pointer;
+}
+
+/* Darkened image overlay layout */
+.play-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+/* Classic CSS play triangle shape */
+.play-icon {
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 35px solid #ffffff;
+  margin-left: 10px;
+  transition: transform 0.2s ease;
+}
+
+.play-overlay:hover .play-icon {
+  transform: scale(1.15);
+}
+
+/* Visibility toggling helper classes handled by JS */
+.video-container.is-playing .play-overlay {
+  opacity: 0;
+  visibility: hidden;
+}
+
 /* ============================================================
        BLOG-PAGE SPECIFIC STYLES
        ============================================================ */
