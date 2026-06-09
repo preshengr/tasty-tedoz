@@ -969,6 +969,11 @@ h5 {
   text-align: center;
 }
 
+.blog-card-thumb img {
+  width: 800px;
+  height: 180px;
+}
+
 .blog-card-body {
   padding: 1.5rem;
 }
@@ -979,6 +984,13 @@ h5 {
   font-size: 0.78rem;
   color: var(--text-muted);
   margin-bottom: 0.75rem;
+}
+
+.blog-meta img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .blog-meta span {
